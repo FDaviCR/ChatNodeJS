@@ -15,7 +15,7 @@
         <form id="chat">
             <input type="text" name="username" placeholder="Digite seu usuário">
             <div class="messages"></div>
-            <input type="text" name="message" placeholder="Digite sua mensagem">
+            <input type="text" name="message" id="message" placeholder="Digite sua mensagem">
             <button type="submit">Enviar</button>
         </form>
 
@@ -53,6 +53,10 @@
                     socket.emit('sendMessage', messageObject);
                 }
             })
+
+            $('form').submit(function(){
+                document.getElementById('message').value='';
+            });
         </script>
 
     </body>
